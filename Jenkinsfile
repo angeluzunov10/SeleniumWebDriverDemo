@@ -23,15 +23,21 @@ pipeline {
         stage ('Run tests') {
             parallel {
                 stage('Project 1 UI tests') {
-                    bat 'dotnet test TestProject1 --no-build --verbosity normal'
+                    steps {
+                        bat 'dotnet test TestProject1 --no-build --verbosity normal'
+                    }
                 }
 
                 stage('Project 2 UI tests') {
-                    bat 'dotnet test TestProject2 --no-build --verbosity normal'
+                    steps {
+                        bat 'dotnet test TestProject2 --no-build --verbosity normal'
+                    }
                 }
 
                 stage('Project 3 UI tests') {
-                    bat 'dotnet test TestProject3 --no-build --verbosity normal'
+                    steps {
+                        bat 'dotnet test TestProject3 --no-build --verbosity normal'
+                    }
                 }
             }
         }
